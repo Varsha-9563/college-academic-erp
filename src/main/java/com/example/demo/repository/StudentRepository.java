@@ -16,6 +16,9 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     boolean existsByUsn(String usn);
 
-
     boolean existsByEmail(String email);
+
+    // ✅ PHASE 2 — needed for JWT-based self-service APIs
+    // Maps the logged-in user's userId to their Student record
+    Optional<Student> findByUser_UserId(Integer userId);
 }
